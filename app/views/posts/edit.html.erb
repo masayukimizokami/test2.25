@@ -1,0 +1,16 @@
+<h1>コメント編集</h1>
+
+<%= form_with model:@post do |post| %>
+    <table>
+        <tr>
+            <th><%= post.label :contents, "contents" %></th>
+            <td><%= post.text_area :contents %></td>
+        </tr>
+    </table>
+    <div>
+        <ul>
+            <li><%= post.submit "登録する" %></li>
+            <li><%= link_to "一覧に戻る",users_path %></li>
+        </ul>
+    </div>
+<% end %>

@@ -1,0 +1,30 @@
+<h1>ユーザー新規作成</h1>
+
+<%= render "shared/error", obj: @user %>
+
+<%= form_with model:@user do |user| %>
+    <table>
+        <tr>
+            <th><%= user.label :name, "名前" %></th>
+            <td><%= user.text_field :name %></td>
+        </tr>
+        <tr>
+            <th><%= user.label :email, "email" %></th>
+            <td><%= user.text_field :email %></td>
+        </tr>
+        <tr>
+            <th><%= user.label :age, "年齢" %></th>
+            <td><%= user.text_field :age %></td>
+        </tr>
+        <tr>
+            <th><%= user.label :infomation, "info" %></th>
+            <td><%= user.text_field :infomation %></td>
+        </tr>
+    </table>
+    <div>
+        <ul>
+            <li><%= user.submit "登録する" %></li>
+            <li><%= link_to "一覧に戻る",users_path %></li>
+        </ul>
+    </div>
+<% end %>

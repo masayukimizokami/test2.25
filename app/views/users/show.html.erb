@@ -1,0 +1,43 @@
+<h1>ユーザー詳細</h1>
+
+    <table>
+        <tr>
+            <th>名前</th>
+            <td><%= @user.name %></td>
+        </tr>
+        <tr>
+            <th>email</th>
+            <td><%= @user.email %></td>
+        </tr>
+        <tr>
+            <th>年齢</th>
+            <td><%= @user.age %></td>
+        </tr>
+        <tr>
+            <th>info</th>
+            <td><%= @user.infomation %></td>
+        </tr>
+    </table>
+    <div>
+        <ul>
+            <li><%= link_to "一覧に戻る",users_path %></li>
+        </ul>
+    </div>
+
+<h1>コメント新規投稿</h1>
+
+<%= form_with model:@post do |post| %>
+    <table>
+        <tr>
+            <th><%= post.label :contents, "コメント" %></th>
+            <td><%= post.text_area :contents, class:"post-contents" %></td>
+        </tr>
+    </table>
+    <%= post.hidden_field :user_id, value: @user.id%>
+    <div>
+        <ul>
+            <li><%= post.submit "登録する" %></li>
+            <li><%= link_to "一覧に戻る",users_path %></li>
+        </ul>
+    </div>
+<% end %>
